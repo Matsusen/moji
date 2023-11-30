@@ -30,7 +30,7 @@ bool loadData(int num, char**& data, const char* fileName)
 			return false;
 		}
 	}
-	cout << "ロード完了" << endl;
+	cout << "ロード完了" << endl << endl;
 	return true;
 }
 
@@ -48,4 +48,14 @@ void freeingMemory(int num, char**& data)
 		delete data[i];
 	}
 	delete[] data;
+}
+
+void draw(int num, char**& data)
+{
+	for (int row = 0; row < num; row++) {
+		for (int col = 0; col < num; col++) {
+			cout << (data[row][col] == '1' ? "＊" : "　");
+		}
+		cout << endl;
+	}
 }

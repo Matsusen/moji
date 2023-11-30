@@ -9,6 +9,7 @@ int main() {
 	allocatingMemory(NUM, data);
 
 	loadData(NUM, data, "data.txt");
+	draw(NUM, data);
 
 	freeingMemory(NUM, data);
 	return 0;
