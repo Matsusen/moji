@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool loadData(int num, char** data, const char* fileName)
+bool loadData(int num, char**& data, const char* fileName)
 {
 	ifstream ifs(fileName);
 	if (!ifs) {
@@ -37,7 +37,7 @@ bool loadData(int num, char** data, const char* fileName)
 	return true;
 }
 
-void allocatingMemory(int num, char** data)
+void allocatingMemory(int num, char**& data)
 {
 	data = new char* [num];
 	for (int i = 0; i < num; i++) {
@@ -45,7 +45,7 @@ void allocatingMemory(int num, char** data)
 	}
 }
 
-void freeingMemory(int num, char** data)
+void freeingMemory(int num, char**& data)
 {
 	for (int i = 0; i < num; i++) {
 		delete data[i];
