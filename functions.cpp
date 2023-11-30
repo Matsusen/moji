@@ -30,10 +30,7 @@ bool loadData(int num, char**& data, const char* fileName)
 			return false;
 		}
 	}
-	if (!ifs.eof()) {
-		cout << "入力データの行数が不正です" << endl;
-		return false;
-	}
+	cout << "ロード完了" << endl;
 	return true;
 }
 
