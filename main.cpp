@@ -1,7 +1,6 @@
 #include <iostream>
+#include <string>
 #include "functions.h"
-
-//using namespace std;
 
 int main() {
 	const int NUM = 8;			//マスの数
@@ -14,9 +13,21 @@ int main() {
 	loadData(NUM, data, "data.txt");
 	draw(NUM, data);
 
-	for (int i = 0; i < 4; i++) {
-		rotate(NUM, data, temp, -1);
-		draw(NUM, data);
+	while (1) {
+		std::cout << "Rで左回転、-Rで右回転、EXITで終了します" << std::endl;
+		std::string command;
+		std::cin >> command;
+		if (command == "R" || command == "r") {
+			rotate(NUM, data, temp, 1);
+			draw(NUM, data);
+		}
+		else if (command == "-R" || command == "-r") {
+			rotate(NUM, data, temp, -1);
+			draw(NUM, data);
+		}
+		else if (command == "EXIT" || command == "exit" || command == "e") {
+			break;
+		}
 	}
 
 	freeingMemory(NUM, temp);		//解放
