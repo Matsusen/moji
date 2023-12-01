@@ -3,11 +3,11 @@
 #include "functions.h"
 
 int main() {
-	const int NUM = 8;			//マスの数
-	char** data = nullptr;		//入力されたデータ
-	char** temp = nullptr;		//回転したデータを作る場所
+	const int NUM = 8;          //マスの数
+	char** data = nullptr;      //入力されたデータ
+	char** temp = nullptr;      //回転したデータを作る場所
 
-	allocatingMemory(NUM, data);	//動的確保
+	allocatingMemory(NUM, data);    //動的確保
 	allocatingMemory(NUM, temp);
 
 	loadData(NUM, data, "data.txt");
@@ -30,7 +30,7 @@ int main() {
 		}
 	}
 
-	freeingMemory(NUM, temp);		//解放
+	freeingMemory(NUM, temp);       //解放
 	freeingMemory(NUM, data);
 	return 0;
 }
