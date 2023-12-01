@@ -47,7 +47,7 @@ void allocatingMemory(int num, char**& data)
 void freeingMemory(int num, char**& data)
 {
 	for (int i = 0; i < num; i++) {
-		delete data[i];
+		delete[] data[i];
 	}
 	delete[] data;
 }
