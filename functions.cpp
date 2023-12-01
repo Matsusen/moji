@@ -1,6 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <algorithm>
+#include <iterator>
 #include "functions.h"
 
 using namespace std;
@@ -57,5 +59,19 @@ void draw(int num, char**& data)
 			cout << (data[row][col] == '1' ? "–" : "@");
 		}
 		cout << endl;
+	}
+}
+
+void rotate(int num, char**& data, char**& temp, int rotateMode)
+{
+	for (int y = 0; y < num; y++) {
+		for (int x = 0; x < num; x++) {
+			temp[x][num - 1 - y] = data[y][x];
+		}
+	}
+	for (int row = 0; row < num; row++) {
+		for (int col = 0; col < num; col++) {
+			data[row][col] = temp[row][col];
+		}
 	}
 }
