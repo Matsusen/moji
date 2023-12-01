@@ -15,7 +15,7 @@ int main() {
 	draw(NUM, data);
 
 	for (int i = 0; i < 4; i++) {
-		rotate(NUM, data, temp);
+		rotate(NUM, data, temp, -1);
 		draw(NUM, data);
 	}
 

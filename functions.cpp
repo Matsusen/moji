@@ -60,13 +60,19 @@ void draw(int num, char**& data)
 		}
 		cout << endl;
 	}
+	cout << endl;
 }
 
 void rotate(int num, char**& data, char**& temp, int rotateMode)
 {
 	for (int y = 0; y < num; y++) {
 		for (int x = 0; x < num; x++) {
-			temp[x][num - 1 - y] = data[y][x];
+			if (rotateMode == 1) {
+				temp[num - 1 - x][y] = data[y][x];
+			}
+			else {
+				temp[x][num - 1 - y] = data[y][x];
+			}
 		}
 	}
 	for (int row = 0; row < num; row++) {
@@ -74,4 +80,50 @@ void rotate(int num, char**& data, char**& temp, int rotateMode)
 			data[row][col] = temp[row][col];
 		}
 	}
+	//----------------------------------------
+	// 　　　　　｜
+	// 　　　　　｜
+	// 　　　　　｜
+	// 　　　　　｜
+	// 　　　　0 ｜ 1 2 3 4
+	// ーーーーー＊＊＊＊＊ー＞Ｘ
+	// 　　　　1 ＊
+	// 　　　　2 ＊＊＊＊
+	// 　　　　3 ＊
+	// 　　　　4 ＊
+	// 　　　　　｜
+	// 　　　　　Ｖ
+	// 　　　　　Ｙ
+	// 　　　　　　　　↓　　　　｜ 0 1 0｜
+	// 　　　　　　　　↓回転行列｜-1 0 0｜を掛ける
+	// 　　　　　　　　↓　　　　｜ 0 0 1｜
+	// 　　　　　　　　↓(y軸が反転しているので回る方向が逆になる)
+	// 　　　　　｜
+	// 　　　 -4 ＊
+	// 　　　 -3 ＊　＊
+	// 　　　 -2 ＊　＊
+	// 　　　 -1 ＊　＊
+	// ーーーーー＊＊＊＊＊ー＞Ｘ
+	// 　　　　0 ｜ 1 2 3 4
+	// 　　　　　｜
+	// 　　　　　｜
+	// 　　　　　｜
+	// 　　　　　｜
+	// 　　　　　Ｖ
+	// 　　　　　Ｙ
+	// 　　　　　　　　↓yに4 (num-1)を足す
+	// 　　　　　｜
+	// 　　　　　｜
+	// 　　　　　｜
+	// 　　　　　｜
+	// 　　　　0 ｜ 1 2 3 4
+	// ーーーーー＊ーーーーー＞Ｘ
+	// 　　　　1 ＊　＊
+	// 　　　　2 ＊　＊
+	// 　　　　3 ＊　＊
+	// 　　　　4 ＊＊＊＊＊
+	// 　　　　　｜
+	// 　　　　　Ｖ
+	// 　　　　　Ｙ
+	//----------------------------------------
 }
